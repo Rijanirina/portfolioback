@@ -2,9 +2,11 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const fs = require('fs');
+const cors = require('cors');
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'static')));
+app.use(cors());
 app.get('/lirecv', (req, res) => {
   const filePath = path.join(__dirname, 'static/MonCV.pdf');
   res.setHeader('Content-Type', 'application/pdf');
